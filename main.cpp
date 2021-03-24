@@ -189,9 +189,9 @@ int main(int argc, char **argv){
     	Quaterniond q_new;
     	Vector3d rcom;
     	if(i<Nload){
-    		
+    		cout << "Loading in molecule  " << i << "\n";
     		infile >> rcom[0] >> rcom[1] >> rcom[2] >> a >> x >> y >>z;
-    		Quaterniond q_load = Quaterniond(a,x,y,z);
+            Quaterniond q_load = Quaterniond(a,x,y,z);
     		q_new = q_load;
 	    	cout << "Loaded in molecule " << i << "\n";
     		
@@ -205,9 +205,10 @@ int main(int argc, char **argv){
 			q_new = q_arr;
 	    	rcom = Vector3d(rx, ry, z_drop);
     	}
+        cout << "initialize molecule\n";
     	molecule mol = molecule(l_seg, rcom, q_new, sigma);
-    	//mol.print_rq2screen();
-    	
+    	mol.print_rq2screen();
+    	cout << "Adding to mols vector\n";
     	mols.push_back(mol);
     }
     if(Loadfile==1){
