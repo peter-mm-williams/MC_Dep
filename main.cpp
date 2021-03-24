@@ -205,10 +205,8 @@ int main(int argc, char **argv){
 			q_new = q_arr;
 	    	rcom = Vector3d(rx, ry, z_drop);
     	}
-        cout << "initialize molecule\n";
     	molecule mol = molecule(l_seg, rcom, q_new, sigma);
     	mol.print_rq2screen();
-    	cout << "Adding to mols vector\n";
     	mols.push_back(mol);
     }
     if(Loadfile==1){

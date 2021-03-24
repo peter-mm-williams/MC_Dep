@@ -453,6 +453,9 @@ void simulation::init_Uij(){
 
 		// Calculate change in energy due to updated displacement
 		flt dU = get_Ui_new(i, Uw);
+		update_Uij(uint i);
+	    dUs.clear();
+	    indsUij.clear();
 	}
 	cout << "\n";
 }
@@ -469,6 +472,7 @@ void simulation::update_Uij(uint i){
 flt simulation::get_Utot(){
 	flt Utot = 0.;
 	for(uint i=0; i<N; i++){
+		Utot += Uwall(params,mi.get_zcom());
 		for(uint j=i+1; j<N; j++){
 			Utot += Uij(i,j);
 		}
@@ -513,6 +517,8 @@ void simulation::timestep_new(uint i){
     	//cout << "Move failed\n";
     	mi.set_r(r0);
     	ConsecRej++;
+	    dUs.clear();
+	    indsUij.clear();
     }
 
 
@@ -534,6 +540,8 @@ void simulation::timestep_new(uint i){
     	//cout << "Rotational Move failed\n";
     	mi.set_q(q0);
     	ConsecRej++;
+	    dUs.clear();
+	    indsUij.clear();
     }
     if(BondFlag){
     	update_BondTime(i);
