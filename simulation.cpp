@@ -472,6 +472,7 @@ void simulation::update_Uij(uint i){
 flt simulation::get_Utot(){
 	flt Utot = 0.;
 	for(uint i=0; i<N; i++){
+		molecule &mi = *molptrs[i];
 		Utot += Uwall(params,mi.get_zcom());
 		for(uint j=i+1; j<N; j++){
 			Utot += Uij(i,j);
