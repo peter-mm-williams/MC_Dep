@@ -453,7 +453,7 @@ void simulation::update_Uij(uint i){
 	dUs.clear();
 }
 
-flt get_Utot(){
+flt simulation::get_Utot(){
 	flt Utot = 0.;
 	for(uint i=0; i<N; i++){
 		for(uint j=i+1; j<N; j++){
