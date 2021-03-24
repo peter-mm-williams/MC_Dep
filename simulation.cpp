@@ -304,6 +304,8 @@ flt simulation::get_Ui_new(uint ind, flt Uw){
 	    	}
 	    	// Add incremental potential energy
 	    	Uijval = get_Uij(dist, phi, coeff, ind, j);
+	    	//Uij[ind,j] = Uijval;
+	    	//Uij[j,ind] = Uijval;
 	    	if(Uijval!=0){
 	    		flt dUval= Uijval - Uij(ind, j);
 	    		if(abs(dUval) > 1e-8){
@@ -367,7 +369,8 @@ flt simulation::get_Ui(uint ind){
 	    	}
 	    	// Add incremental potential energy
 	    	Uijval = get_Uij(dist, phi, coeff, ind, j);
-
+	    	//Uij[ind,j] = Uijval;
+	    	//Uij[j,ind] = Uijval;
 	    	U += Uijval;
     	}
 	}
@@ -437,7 +440,7 @@ void simulation::timestep(uint i){
     	// Move not accepted revert rcom back to old one
     	//cout << "Rotational Move failed\n";
     	mi.set_q(q0);
-    	ConsecRej++;East Haven, Connecticut
+    	ConsecRej++;
     }
 }
 
