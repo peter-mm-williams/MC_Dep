@@ -224,7 +224,8 @@ int main(int argc, char **argv){
     params.push_back(mg);
     // Initialize simulation
     simulation sim = simulation(molptrs, ConstFieldPieceU, eps_rlj, eps, sigma, w, theta0, dtheta, params, KbT, dr, dq, e_strain, bounds, Ls, Nseg, BondRate);
-    
+    sim.set_N(Nload);
+    sim.init_Uij();
     /* -----------------------------------Run Simulation------------------------------------------------------ */
     // set timer
     clock_t t0 = clock();

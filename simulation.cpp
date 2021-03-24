@@ -57,7 +57,6 @@ simulation::simulation(vector<molecule*> molptrs0, flt (*UwallFunc)(vector<flt>,
     C2 = 4.*(sig*sig-w*w)*sig;
     C3 = (sig*sig - w*w)*(sig*sig + w*w);
     alpha = M_PI/dtheta;
-    init_Uij();
 }
 simulation::simulation(vector<molecule*> molptrs0, flt (*UwallFunc)(vector<flt>, flt), flt eps_rlj0, flt eps0, flt sig0, flt w0, flt theta00, flt dtheta0, vector<flt> params0, flt KbT0, Vector3d dr0, Quaterniond dq0, Vector3d e_strain0, string* bound_arr, Vector3d Ls0, flt zmin0, int N0, uint Nseg, flt BondRate0){
 	// Constructor for simulation
@@ -115,7 +114,6 @@ simulation::simulation(vector<molecule*> molptrs0, flt (*UwallFunc)(vector<flt>,
     C2 = 4.*(sig*sig-w*w)*sig;
     C3 = (sig*sig - w*w)*(sig*sig + w*w);
     alpha = M_PI/dtheta;
-    init_Uij();
 }
 
 void simulation::reset_Rej(){
