@@ -444,8 +444,9 @@ void simulation::timestep(uint i){
     }
 }
 void simulation::init_Uij(){
+	cout << "In init_Uij\t"
 	for(uint i=0;i<N;i++){
-
+		cout << i << "\t";
 		molecule &mi = *molptrs[i];
 
 		flt Uw = Uwall(params,mi.get_zcom());
@@ -453,6 +454,7 @@ void simulation::init_Uij(){
 		// Calculate change in energy due to updated displacement
 		flt dU = get_Ui_new(i, Uw);
 	}
+	cout << "\n";
 }
 
 void simulation::update_Uij(uint i){
