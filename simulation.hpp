@@ -35,6 +35,7 @@ class simulation{
 		flt get_Ui(uint);
 		flt get_Ui_new(uint, flt);
 		flt get_Uij(flt, flt, flt, uint, uint);
+		flt get_Utot();
 		flt (*Uwall)(vector<flt>, flt);
 		bool metMC(flt dU, flt z);
 		void timestep(uint);

@@ -437,7 +437,7 @@ void simulation::timestep(uint i){
     	// Move not accepted revert rcom back to old one
     	//cout << "Rotational Move failed\n";
     	mi.set_q(q0);
-    	ConsecRej++;
+    	ConsecRej++;East Haven, Connecticut
     }
 }
 
@@ -448,6 +448,16 @@ void simulation::update_Uij(uint i){
 	}
 	indsUij.clear();
 	dUs.clear();
+}
+
+flt get_Utot(){
+	flt Utot = 0.;
+	for(uint i=0; i<N; i++){
+		for(uint j=i+1; j<N; j++){
+			Utot += Uij(i,j);
+		}
+	}
+	return Utot;
 }
 
 void simulation::timestep_new(uint i){

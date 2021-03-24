@@ -248,6 +248,7 @@ int main(int argc, char **argv){
     		sim.timestep_new(i);
     		// Print out in accordance to specified frequency
     		if((time%Nprint)==0){
+                cout << "Placing moelcule: " << i <<", U of placed mol: "  << sim.get_Ui(i) << ", " << sim.get_Utot() << "\n";
     			sim.write_xyzfile(xyzfile,time);
     			sim.write_theta_horz(thetafile, time, Nseg);
     		}
