@@ -453,7 +453,7 @@ void simulation::init_Uij(){
 
 		// Calculate change in energy due to updated displacement
 		flt dU = get_Ui_new(i, Uw);
-		update_Uij(uint i);
+		update_Uij(i);
 	    dUs.clear();
 	    indsUij.clear();
 	}
