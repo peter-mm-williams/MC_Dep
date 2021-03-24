@@ -444,7 +444,7 @@ void simulation::timestep(uint i){
     }
 }
 void simulation::init_Uij(){
-	cout << "In init_Uij\t"
+	cout << "In init_Uij\t";
 	for(uint i=0;i<N;i++){
 		cout << i << "\t";
 		molecule &mi = *molptrs[i];
