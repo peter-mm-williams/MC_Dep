@@ -453,7 +453,7 @@ void simulation::init_Uij(){
 		flt Uw = Uwall(params,mi.get_zcom());
 
 		// Calculate change in energy due to updated displacement
-		dU = get_Ui_new(i, Uw);
+		flt dU = get_Ui_new(i, Uw);
 	}
 }
 
