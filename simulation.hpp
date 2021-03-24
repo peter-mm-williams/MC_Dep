@@ -42,6 +42,7 @@ class simulation{
 		void update_Uij(uint i);
 		void timestep_new(uint);
 		void update_BondTime(uint);
+		void init_Uij();
 };
 
 
