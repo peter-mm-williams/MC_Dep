@@ -230,6 +230,10 @@ int main(int argc, char **argv){
     clock_t t0 = clock();
     clock_t t1;
     int time = 0;
+    flt Utot=0;
+    flt Ui=0;
+    flt dUi=0;
+    flt dUtot=0;
     for(uint i=Nload;i<Nseg;i++){
     	sim.set_N(i+1);
 
@@ -248,11 +252,19 @@ int main(int argc, char **argv){
     		sim.timestep_new(i);
     		// Print out in accordance to specified frequency
     		if((time%Nprint)==0){
+                dUi = - Ui;
+                dUtot = -Utot;
+                Ui = sim.get_Ui(i);
+                Utot = sim.get_Utot();
+                dUi += Ui;
+                dUtot +=Utot;
                 cout << "Placing moelcule: " << i <<", U of placed mol: "  << sim.get_Ui(i) << ", U_tot: " << sim.get_Utot() << "\n";
                 mol.print_rq2screen();
                 cout << "\tUwall_i: " << ConstFieldPieceU(params,mol.get_zcom()) << "\n";
-                sim.print_Uijs();
-    			sim.write_xyzfile(xyzfile,time);
+                if(dUtot>dUi){
+                    sim.print_Uijs();    
+                }
+                sim.write_xyzfile(xyzfile,time);
     			sim.write_theta_horz(thetafile, time, Nseg);
     		}
     	}
