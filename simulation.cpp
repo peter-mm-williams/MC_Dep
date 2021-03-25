@@ -213,6 +213,14 @@ void simulation::write_theta_horz(ofstream& thetafile, flt time, uint Nseg){
 	return;
 }
 
+void simulation::print_Uijs(){
+	for(uint i=0;i<N;i++){
+		for(uint j=i+1;j<N;j++){
+			cout << "\t(" << i << ", " << j << "): " << Uij(i,j) << "\n";
+		}
+	}
+}
+
 
 flt simulation::get_Uij(flt dist, flt phi, flt coeff, uint i, uint j){
 	flt U_rad = 0;
@@ -454,8 +462,6 @@ void simulation::init_Uij(){
 		// Calculate change in energy due to updated displacement
 		flt dU = get_Ui_new(i, Uw);
 		update_Uij(i);
-	    dUs.clear();
-	    indsUij.clear();
 	}
 	cout << "\n";
 }
