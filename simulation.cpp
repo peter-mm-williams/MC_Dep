@@ -216,7 +216,9 @@ void simulation::write_theta_horz(ofstream& thetafile, flt time, uint Nseg){
 void simulation::print_Uijs(){
 	for(uint i=0;i<N;i++){
 		for(uint j=i+1;j<N;j++){
-			cout << "\t(" << i << ", " << j << "): " << Uij(i,j);
+			if(Uij>1e-8){
+				cout << "\t(" << i << ", " << j << "): " << Uij(i,j);
+			}
 		}
 	}
 }
