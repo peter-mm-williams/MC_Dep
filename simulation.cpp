@@ -319,13 +319,14 @@ flt simulation::get_Ui_new(uint ind, flt Uw){
 	    	//Uij[j,ind] = Uijval;
 	    	if(Uijval!=0){
 	    		flt dUval= Uijval - Uij(ind, j);
+	    		dU += dUval;
 	    		if(abs(dUval) > 1e-8){
 		    		dUs.push_back(dUval);
 		    		indsUij.push_back(j);	
 	    		}
 	    	}
 
-	    	dU += Uijval;
+	    	//dU += Uijval;
     	}
 	}
 	return dU;
