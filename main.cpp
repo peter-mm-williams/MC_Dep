@@ -258,7 +258,7 @@ int main(int argc, char **argv){
                 Utot = sim.get_Utot();
                 dUi += Ui;
                 dUtot +=Utot;
-                cout << "Placing moelcule: " << i <<", U of placed mol: "  << sim.get_Ui(i) << ", U_tot: " << sim.get_Utot() << "\n";
+                cout << "Placing moelcule: " << i <<", U of placed mol: "  << sim.get_Ui_new(i) << ", U_tot: " << sim.get_Utot() << "\n";
                 mol.print_rq2screen();
                 cout << "\tUwall_i: " << ConstFieldPieceU(params,mol.get_zcom()) << "\n";
                 if(dUtot>dUi){

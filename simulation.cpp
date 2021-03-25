@@ -221,6 +221,7 @@ void simulation::print_Uijs(){
 			}
 		}
 	}
+	cout << "\n";
 }
 
 
